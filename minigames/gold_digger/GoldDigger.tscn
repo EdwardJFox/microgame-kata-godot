@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://entities/Border.tscn" type="PackedScene" id=1]
+[ext_resource path="res://minigames/gold_digger/entities/Nose.tscn" type="PackedScene" id=2]
+[ext_resource path="res://minigames/gold_digger/entities/Hand.tscn" type="PackedScene" id=3]
+[ext_resource path="res://minigames/gold_digger/GoldDigger.gd" type="Script" id=4]
+
+[node name="GoldDigger" type="Node"]
+script = ExtResource( 4 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.972549, 0.972549, 0.972549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Border" parent="." instance=ExtResource( 1 )]
+ridge_color = Color( 0.972549, 0.972549, 0.972549, 1 )
+
+[node name="Nose" parent="." instance=ExtResource( 2 )]
+position = Vector2( 120, 44 )
+
+[node name="Hand" parent="." instance=ExtResource( 3 )]
+position = Vector2( 115, 152 )

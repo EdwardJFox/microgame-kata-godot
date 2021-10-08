@@ -1,0 +1,109 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://minigames/gold_digger/assets/art/nose.png" type="Texture" id=1]
+[ext_resource path="res://minigames/gold_digger/entities/Nose.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 144, 65, 48 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 192, 65, 48 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 240, 65, 48 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 288, 65, 48 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 65, 48 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 48, 65, 48 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 96, 65, 48 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "middle",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 4.5, 17 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 4.5, 17 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 4, 17 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 6, 17 )
+
+[node name="Nose" type="Area2D"]
+collision_layer = 4
+script = ExtResource( 2 )
+
+[node name="NostrilBackground" type="ColorRect" parent="."]
+margin_left = -21.0
+margin_top = 13.0
+margin_right = 19.0
+margin_bottom = 23.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 8 )
+
+[node name="LeftCollision" type="CollisionShape2D" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( -21, 6 )
+shape = SubResource( 9 )
+
+[node name="RightCollision" type="CollisionShape2D" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 21, 6 )
+shape = SubResource( 10 )
+
+[node name="MiddleCollision" type="CollisionShape2D" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 0, 6 )
+shape = SubResource( 11 )
+
+[node name="LeftNostrilCollision" type="CollisionShape2D" parent="."]
+modulate = Color( 0.00784314, 1, 0, 1 )
+position = Vector2( -10.25, 6 )
+shape = SubResource( 12 )
+
+[node name="LeftNostrilCollision2" type="CollisionShape2D" parent="."]
+modulate = Color( 0.00784314, 1, 0, 1 )
+position = Vector2( 10.25, 6 )
+shape = SubResource( 12 )
