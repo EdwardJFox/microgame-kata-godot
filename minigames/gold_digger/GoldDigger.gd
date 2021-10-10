@@ -1,10 +1,14 @@
 extends Node
 
-# Called when the node enters the scene tree for the first time.
+enum State {STATE_PLAYING, STATE_WIN, STATE_LOSS}
+
+var game_state = State.STATE_PLAYING
+
 func _ready():
-	pass # Replace with function body.
+	$Hand.start(Vector2(93, 152))
+	
+func _on_loss():
+	game_state = State.STATE_LOSS
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_win():
+	game_state = State.STATE_WIN

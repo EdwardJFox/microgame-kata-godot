@@ -19,8 +19,11 @@ __meta__ = {
 [node name="Border" parent="." instance=ExtResource( 1 )]
 ridge_color = Color( 0.972549, 0.972549, 0.972549, 1 )
 
+[node name="Hand" parent="." instance=ExtResource( 3 )]
+position = Vector2( 92, 152 )
+
 [node name="Nose" parent="." instance=ExtResource( 2 )]
 position = Vector2( 120, 44 )
 
-[node name="Hand" parent="." instance=ExtResource( 3 )]
-position = Vector2( 115, 152 )
+[connection signal="loss" from="Nose" to="." method="_on_loss"]
+[connection signal="win" from="Nose" to="." method="_on_win"]
