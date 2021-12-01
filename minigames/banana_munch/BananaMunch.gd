@@ -8,7 +8,9 @@ enum State {STATE_PLAYING, STATE_WIN, STATE_LOSS}
 var game_state = State.STATE_PLAYING
 
 func _ready():
-	$Hand.start(Vector2(93, 152))
+	# $Hand.start(Vector2(93, 152))
+	emit_signal("game_loss")
+	
 	
 func _on_loss():
 	game_state = State.STATE_LOSS

@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Warioware Kata"
+config/name="Microgame Kata"
 config/icon="res://icon.png"
 
 [debug]

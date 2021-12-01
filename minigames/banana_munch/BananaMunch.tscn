@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://minigames/banana_munch/BananaMunch.gd" type="Script" id=1]
+[ext_resource path="res://entities/Border.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/Timer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://minigames/banana_munch/entities/Banana.tscn" type="PackedScene" id=4]
+[ext_resource path="res://minigames/banana_munch/entities/BlueStar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://minigames/banana_munch/entities/RedStar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://minigames/banana_munch/entities/BlueStarSmall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://minigames/banana_munch/entities/RedStarSmall.tscn" type="PackedScene" id=8]
+
+[node name="BananaMunch" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlueStarSprite" parent="Background" instance=ExtResource( 5 )]
+position = Vector2( 201, 119 )
+
+[node name="BlueStarSpriteAnimated" parent="Background" instance=ExtResource( 5 )]
+position = Vector2( 44, 96 )
+animated = true
+
+[node name="RedStarSprite" parent="Background" instance=ExtResource( 6 )]
+position = Vector2( 52, 27 )
+
+[node name="RedStarSpriteAnimated" parent="Background" instance=ExtResource( 6 )]
+position = Vector2( 201, 34 )
+animated = true
+
+[node name="BlueStarSmallSprite" parent="Background" instance=ExtResource( 7 )]
+position = Vector2( 56, 138 )
+
+[node name="BlueStarSmallSprite2" parent="Background" instance=ExtResource( 7 )]
+position = Vector2( 174, 15 )
+
+[node name="BlueStarSmallSpriteAnimated" parent="Background" instance=ExtResource( 7 )]
+position = Vector2( 205, 61 )
+animated = true
+
+[node name="RedStarSmallSprite" parent="Background" instance=ExtResource( 8 )]
+position = Vector2( 189, 92 )
+
+[node name="RedStarSmallSprite2" parent="Background" instance=ExtResource( 8 )]
+position = Vector2( 126, 15 )
+
+[node name="RedStarSmallSprite3" parent="Background" instance=ExtResource( 8 )]
+position = Vector2( 63, 46 )
+
+[node name="RedStarSmallSpriteAnimated" parent="Background" instance=ExtResource( 8 )]
+position = Vector2( 40, 123 )
+animated = true
+
+[node name="Border" parent="." instance=ExtResource( 2 )]
+outer_color = Color( 0.784314, 0.627451, 0, 1 )
+ridge_color = Color( 0.972549, 0.972549, 0.972549, 1 )
+inner_color = Color( 0.282353, 0.282353, 0.282353, 1 )
+outer_width = 19
+outer_height = 2
+
+[node name="Banana" parent="Border" instance=ExtResource( 4 )]
+position = Vector2( 120, 86 )
+z_index = 1
+
+[node name="Timer" parent="Border" instance=ExtResource( 3 )]
+z_index = 2
