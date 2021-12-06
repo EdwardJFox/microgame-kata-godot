@@ -22,34 +22,34 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 16, 11, 16 )
-
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 11, 16 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 32, 11, 16 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 16, 11, 16 )
+
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 6 ) ],
-"loop": false,
-"name": "2",
-"speed": 1.0
-}, {
 "frames": [ SubResource( 4 ) ],
 "loop": true,
 "name": "1",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 7 ) ],
+"frames": [ SubResource( 5 ) ],
 "loop": true,
 "name": "3",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 6 ) ],
+"loop": false,
+"name": "2",
+"speed": 1.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -61,8 +61,8 @@ animations = [ {
 script = ExtResource( 4 )
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 241, 152 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="BombSprite" type="Sprite" parent="."]
@@ -80,7 +80,7 @@ texture = ExtResource( 3 )
 
 [node name="Numbers" type="AnimatedSprite" parent="."]
 position = Vector2( 11, 132 )
-frames = SubResource( 5 )
+frames = SubResource( 7 )
 animation = "0"
 
 [connection signal="timeout" from="IntervalTimer" to="." method="_on_IntervalTimer_timeout"]

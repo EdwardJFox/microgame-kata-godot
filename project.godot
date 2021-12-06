@@ -21,7 +21,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Microgame Kata"
+run/main_scene="res://minigames/banana_munch/BananaMunch.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+MinigameFont="*res://autoloads/MinigameFont.gd"
 
 [debug]
 

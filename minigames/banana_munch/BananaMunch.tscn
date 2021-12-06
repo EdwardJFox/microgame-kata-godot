@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://minigames/banana_munch/BananaMunch.gd" type="Script" id=1]
 [ext_resource path="res://entities/Border.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://minigames/banana_munch/entities/RedStar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://minigames/banana_munch/entities/BlueStarSmall.tscn" type="PackedScene" id=7]
 [ext_resource path="res://minigames/banana_munch/entities/RedStarSmall.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/InstructionText.tscn" type="PackedScene" id=9]
 
 [node name="BananaMunch" type="Node"]
 script = ExtResource( 1 )
@@ -63,6 +64,9 @@ ridge_color = Color( 0.972549, 0.972549, 0.972549, 1 )
 inner_color = Color( 0.282353, 0.282353, 0.282353, 1 )
 outer_width = 19
 outer_height = 2
+
+[node name="InstructionText" parent="Border" instance=ExtResource( 9 )]
+text = "Eat!"
 
 [node name="Banana" parent="Border" instance=ExtResource( 4 )]
 position = Vector2( 120, 86 )

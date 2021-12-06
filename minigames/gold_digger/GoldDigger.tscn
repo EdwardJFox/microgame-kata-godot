@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://entities/Border.tscn" type="PackedScene" id=1]
 [ext_resource path="res://minigames/gold_digger/entities/Nose.tscn" type="PackedScene" id=2]
 [ext_resource path="res://minigames/gold_digger/entities/Hand.tscn" type="PackedScene" id=3]
 [ext_resource path="res://minigames/gold_digger/GoldDigger.gd" type="Script" id=4]
 [ext_resource path="res://entities/Timer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/InstructionText.tscn" type="PackedScene" id=6]
 
 [node name="GoldDigger" type="Node"]
 script = ExtResource( 4 )
@@ -19,6 +20,9 @@ __meta__ = {
 
 [node name="Border" parent="." instance=ExtResource( 1 )]
 ridge_color = Color( 0.972549, 0.972549, 0.972549, 1 )
+
+[node name="InstructionText" parent="Border" instance=ExtResource( 6 )]
+text = "Pick!"
 
 [node name="Timer" parent="Border" instance=ExtResource( 5 )]
 

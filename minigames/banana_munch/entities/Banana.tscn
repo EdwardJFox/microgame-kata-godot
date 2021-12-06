@@ -4,7 +4,7 @@
 [ext_resource path="res://minigames/banana_munch/assets/art/eating_paticle.png" type="Texture" id=2]
 [ext_resource path="res://minigames/banana_munch/entities/Banana.gd" type="Script" id=3]
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 1
 emission_sphere_radius = 5.0
 flag_disable_z = true
@@ -17,7 +17,7 @@ initial_velocity_random = 0.37
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=2]
 resource_name = "shake"
 length = 0.15
 loop = true
@@ -35,33 +35,33 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -1, 1 ), Vector2( 1, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 715, 132, 143 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 572, 132, 143 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 429, 132, 143 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 286, 132, 143 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 143, 132, 143 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 132, 143 )
 
-[sub_resource type="SpriteFrames" id=16]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -78,7 +78,7 @@ lifetime = 4.0
 one_shot = true
 speed_scale = 2.5
 explosiveness = 1.0
-process_material = SubResource( 8 )
+process_material = SubResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="FirstEatingParticle" type="Particles2D" parent="."]
@@ -89,12 +89,12 @@ lifetime = 4.0
 one_shot = true
 speed_scale = 2.5
 explosiveness = 1.0
-process_material = SubResource( 8 )
+process_material = SubResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/shake = SubResource( 9 )
+anims/shake = SubResource( 2 )
 
 [node name="BananaSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 1, 0 )
-frames = SubResource( 16 )
+frames = SubResource( 9 )
