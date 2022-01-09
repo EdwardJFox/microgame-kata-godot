@@ -10,12 +10,14 @@ export var outer_height = 10 setget set_outer_height
 export var screen_width = 240 setget set_screen_width
 export var screen_height = 160 setget set_screen_height
 
-var RIDGE_WIDTH = 5
+var RIDGE_WIDTH = 5.0
+var INNER_WIDTH = 1.0
 
 func _ready():
 	_update_outer_border()
 	_update_ridge()
 	_update_inner()
+	_update_collision()
 
 func _update_outer_border():
 	_update_outer_border_color()
@@ -59,6 +61,18 @@ func _update_inner_sizing_and_position():
 		screen_height - (outer_height * 2) - (RIDGE_WIDTH * 2) + 2
 	)
 	$Inner.rect_position = Vector2(outer_width + RIDGE_WIDTH - 1, outer_height + RIDGE_WIDTH - 1)
+	
+func _update_collision():
+	var side_collision_extents = (outer_width + RIDGE_WIDTH) / 2.0
+	$Collision/CollisionLeft.shape.extents = Vector2(side_collision_extents, screen_height / 2.0)
+	$Collision/CollisionLeft.position = Vector2(side_collision_extents, screen_height / 2.0)
+	$Collision/CollisionRight.shape.extents = Vector2(side_collision_extents, screen_height / 2.0)
+	$Collision/CollisionRight.position = Vector2(screen_width - side_collision_extents, screen_height / 2.0)
+	var top_collision_extents = Vector2(screen_width / 2.0, (outer_height + RIDGE_WIDTH) / 2.0)
+	$Collision/CollisionTop.shape.extents = top_collision_extents
+	$Collision/CollisionTop.position = Vector2(screen_width / 2.0, top_collision_extents.y)
+	$Collision/CollisionBottom.shape.extents = top_collision_extents
+	$Collision/CollisionBottom.position = Vector2(screen_width / 2.0, screen_height - top_collision_extents.y)
 
 func _update_sizing_and_positions():
 	_update_outer_border_sizing_and_position()
