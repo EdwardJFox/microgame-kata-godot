@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://entities/Border.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/Timer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/InstructionText.tscn" type="PackedScene" id=3]
+[ext_resource path="res://minigames/body_block/entities/Body.tscn" type="PackedScene" id=4]
 
 [node name="BodyBlock" type="Node"]
 
@@ -23,3 +24,6 @@ anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Body" parent="." instance=ExtResource( 4 )]
+position = Vector2( 120, 112 )
