@@ -64,20 +64,21 @@ func _update_inner_sizing_and_position():
 	
 func _update_collision():
 	var side_collision_extents = (outer_width + RIDGE_WIDTH) / 2.0
-	$Collision/CollisionLeft.shape.extents = Vector2(side_collision_extents, screen_height / 2.0)
-	$Collision/CollisionLeft.position = Vector2(side_collision_extents, screen_height / 2.0)
-	$Collision/CollisionRight.shape.extents = Vector2(side_collision_extents, screen_height / 2.0)
-	$Collision/CollisionRight.position = Vector2(screen_width - side_collision_extents, screen_height / 2.0)
-	var top_collision_extents = Vector2(screen_width / 2.0, (outer_height + RIDGE_WIDTH) / 2.0)
-	$Collision/CollisionTop.shape.extents = top_collision_extents
-	$Collision/CollisionTop.position = Vector2(screen_width / 2.0, top_collision_extents.y)
-	$Collision/CollisionBottom.shape.extents = top_collision_extents
-	$Collision/CollisionBottom.position = Vector2(screen_width / 2.0, screen_height - top_collision_extents.y)
+	$BorderCollision/CollisionLeft.shape.extents = Vector2(side_collision_extents, screen_height / 2.0)
+	$BorderCollision/CollisionLeft.position = Vector2(side_collision_extents, screen_height / 2.0)
+	$BorderCollision/CollisionRight.shape.extents = Vector2(side_collision_extents, screen_height / 2.0)
+	$BorderCollision/CollisionRight.position = Vector2(screen_width - side_collision_extents, screen_height / 2.0)
+	var top_collision_extents = Vector2((screen_width - (outer_width * 2.0) - (RIDGE_WIDTH * 2.0)) / 2.0, (outer_height + RIDGE_WIDTH) / 2.0)
+	$BorderCollision/CollisionTop.shape.extents = top_collision_extents
+	$BorderCollision/CollisionTop.position = Vector2(screen_width / 2.0, top_collision_extents.y)
+	$BorderCollision/CollisionBottom.shape.extents = top_collision_extents
+	$BorderCollision/CollisionBottom.position = Vector2(screen_width / 2.0, screen_height - top_collision_extents.y)
 
 func _update_sizing_and_positions():
 	_update_outer_border_sizing_and_position()
 	_update_ridge_sizing_and_position()
 	_update_inner_sizing_and_position()
+	_update_collision()
 
 func set_outer_color(value):
 	outer_color = value
