@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://entities/Border.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/Timer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/InstructionText.tscn" type="PackedScene" id=3]
 [ext_resource path="res://minigames/body_block/entities/Body.tscn" type="PackedScene" id=4]
+[ext_resource path="res://minigames/body_block/entities/Watermelon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://minigames/body_block/BodyBlock.gd" type="Script" id=6]
+[ext_resource path="res://minigames/body_block/entities/FailArea.gd" type="Script" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 120, 7.5 )
 
 [node name="BodyBlock" type="Node"]
+script = ExtResource( 6 )
 
 [node name="Border" parent="." instance=ExtResource( 1 )]
 outer_color = Color( 0, 0, 0, 1 )
@@ -21,10 +28,35 @@ text = "Bounce!"
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Body" parent="." instance=ExtResource( 4 )]
 position = Vector2( 120, 112 )
-collision_mask = 12
+collision_mask = 8
+
+[node name="Watermelon" parent="." instance=ExtResource( 5 )]
+position = Vector2( 120, 26 )
+collision_layer = 4
+collision_mask = 113
+spawn_width = 160
+
+[node name="FailArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource( 7 )
+
+[node name="FailAreaCollision" type="CollisionShape2D" parent="FailArea"]
+modulate = Color( 1, 0.00392157, 0.00392157, 1 )
+position = Vector2( 120, 159.5 )
+shape = SubResource( 1 )
+
+[node name="HoldingTimer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+autostart = true
+
+[connection signal="timer_end" from="Border/Timer" to="." method="_on_win"]
+[connection signal="body_shape_entered" from="FailArea" to="FailArea" method="_on_FailArea_body_shape_entered"]
+[connection signal="loss" from="FailArea" to="." method="_on_loss"]
+[connection signal="loss" from="FailArea" to="Body" method="_on_miss"]
+[connection signal="timeout" from="HoldingTimer" to="Watermelon" method="_start_moving"]

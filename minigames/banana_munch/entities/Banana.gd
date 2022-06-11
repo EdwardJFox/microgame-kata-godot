@@ -14,7 +14,6 @@ func _input(event):
 	if event.is_action_pressed("action"):
 		action()
 
-
 func action():
 	progress += 1
 	

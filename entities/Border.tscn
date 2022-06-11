@@ -5,16 +5,16 @@
 [ext_resource path="res://assets/art/border/ridge_tile.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 80 )
+extents = Vector2( 12.5, 80 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 80 )
+extents = Vector2( 12.5, 80 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 104, 4 )
+extents = Vector2( 95, 7.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 104, 4 )
+extents = Vector2( 95, 7.5 )
 
 [node name="Border" type="CanvasLayer"]
 script = ExtResource( 4 )
@@ -24,7 +24,6 @@ script = ExtResource( 4 )
 [node name="OuterLeft" type="ColorRect" parent="Outer"]
 anchor_bottom = 1.0
 margin_right = 21.0
-margin_bottom = 160.0
 color = Color( 0.278431, 0.403922, 0.658824, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -34,9 +33,7 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 219.0
-margin_right = 240.0
-margin_bottom = 160.0
+margin_left = -21.0
 color = Color( 0.278431, 0.403922, 0.658824, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -44,7 +41,6 @@ __meta__ = {
 
 [node name="OuterTop" type="ColorRect" parent="Outer"]
 anchor_right = 1.0
-margin_right = 240.0
 margin_bottom = 11.0
 color = Color( 0.278431, 0.403922, 0.658824, 1 )
 __meta__ = {
@@ -55,9 +51,7 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 149.0
-margin_right = 240.0
-margin_bottom = 160.0
+margin_top = -11.0
 color = Color( 0.278431, 0.403922, 0.658824, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -68,8 +62,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
 margin_top = 10.0
-margin_right = 220.0
-margin_bottom = 150.0
+margin_right = -20.0
+margin_bottom = -10.0
 texture = ExtResource( 5 )
 patch_margin_left = 5
 patch_margin_top = 5
@@ -85,8 +79,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 24.0
 margin_top = 14.0
-margin_right = 216.0
-margin_bottom = 146.0
+margin_right = -24.0
+margin_bottom = -14.0
 texture = ExtResource( 1 )
 patch_margin_left = 1
 patch_margin_top = 1
@@ -96,22 +90,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BorderCollision" type="StaticBody2D" parent="."]
-collision_layer = 8
+[node name="BorderCollisionLeft" type="StaticBody2D" parent="."]
+collision_layer = 24
 collision_mask = 0
 
-[node name="CollisionLeft" type="CollisionShape2D" parent="BorderCollision"]
+[node name="CollisionLeft" type="CollisionShape2D" parent="BorderCollisionLeft"]
 position = Vector2( 12.5, 80 )
 shape = SubResource( 1 )
 
-[node name="CollisionRight" type="CollisionShape2D" parent="BorderCollision"]
+[node name="BorderCollisionRight" type="StaticBody2D" parent="."]
+collision_layer = 40
+collision_mask = 0
+
+[node name="CollisionRight" type="CollisionShape2D" parent="BorderCollisionRight"]
 position = Vector2( 227.5, 80 )
 shape = SubResource( 2 )
 
-[node name="CollisionTop" type="CollisionShape2D" parent="BorderCollision"]
+[node name="BorderCollisionTop" type="StaticBody2D" parent="."]
+collision_layer = 72
+collision_mask = 0
+
+[node name="CollisionTop" type="CollisionShape2D" parent="BorderCollisionTop"]
 position = Vector2( 120, 7.5 )
 shape = SubResource( 3 )
 
-[node name="CollisionBottom" type="CollisionShape2D" parent="BorderCollision"]
+[node name="BorderCollisionBottom" type="StaticBody2D" parent="."]
+collision_layer = 136
+collision_mask = 0
+
+[node name="CollisionBottom" type="CollisionShape2D" parent="BorderCollisionBottom"]
 position = Vector2( 120, 152.5 )
 shape = SubResource( 4 )

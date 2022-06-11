@@ -101,6 +101,10 @@ move_down={
 2d_physics/layer_2="world"
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="border"
+2d_physics/layer_5="border_left"
+2d_physics/layer_6="border_right"
+2d_physics/layer_7="border_top"
+2d_physics/layer_8="border_bottom"
 
 [physics]
 

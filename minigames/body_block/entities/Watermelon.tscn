@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://minigames/body_block/assets/art/watermelon.png" type="Texture" id=1]
+[ext_resource path="res://minigames/body_block/entities/Watermelon.gd" type="Script" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 12.0416
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12, 12 )
 
 [node name="Watermelon" type="KinematicBody2D"]
+script = ExtResource( 2 )
+spawn_width = 200
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

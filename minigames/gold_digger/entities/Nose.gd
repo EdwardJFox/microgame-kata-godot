@@ -48,9 +48,3 @@ func _on_Collisions_area_shape_entered(area_id, area, area_shape, local_shape):
 			_on_middle_collision_entered()
 		right_fail_collision_index:
 			_on_right_collision_entered()
-
-
-
-func _on_NoseSprite_animation_finished():
-	pass
-	# $NoseSprite.stop()
