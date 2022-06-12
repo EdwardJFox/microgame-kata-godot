@@ -15,7 +15,7 @@ var moving = false
 func _ready():
 	if !Engine.editor_hint:
 		angle = rand_range(min_angle, max_angle)
-		direction = Vector2.UP.rotated(angle)
+		direction = Vector2.DOWN.rotated(angle)
 		direction = direction * speed
 
 func _draw():
@@ -25,12 +25,9 @@ func _draw():
 
 func _physics_process(delta):
 	if !Engine.editor_hint and moving:
-		move_and_slide(direction * speed * delta, Vector2.UP)
-		var slide_count = get_slide_count()
+		var collision = move_and_collide(direction * speed * delta)
 
-		if slide_count:
-			var collision = get_slide_collision(slide_count - 1)
-			
+		if collision:
 			if collision.normal.x != 0:
 				direction.x = -direction.x
 			if collision.normal.y != 0:
