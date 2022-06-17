@@ -14,6 +14,7 @@ var moving = false
 
 func _ready():
 	if !Engine.editor_hint:
+		randomize()
 		angle = rand_range(min_angle, max_angle)
 		direction = Vector2.DOWN.rotated(angle)
 		direction = direction * speed
